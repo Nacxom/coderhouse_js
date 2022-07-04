@@ -102,7 +102,6 @@ function agregarCarro() {
 	}
 
 	costoTotalFuncion(arrayCarro);
-	// mostrarCarro();
 }
 
 // Funcion para mostrar en HTML el carro de compras (un array con objetos)
@@ -128,7 +127,7 @@ function mostrarCarro() {
 	
 	const comprarBtn = document.querySelector("#comprarBtn");
 	// comprarBtn.addEventListener('click', () => calcularCuotas(costoTotal));
-	comprarBtn.addEventListener('click', calcularCuotas2)
+	comprarBtn.addEventListener('click', calcularCuotas2);
 }
 
 window.onload = mostrarProductos();
