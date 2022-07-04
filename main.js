@@ -29,8 +29,8 @@ arrayProductos.push(girasol);
 const arrayCarro = [];
 
 // Funcion para calcular el costo total al usuario:
-function costoTotalFuncion(arr) {
-	costoTotal = arr.reduce(
+function costoTotalFuncion() {
+	costoTotal = arrayCarro.reduce(
 		(acumulador, elemento) => acumulador + elemento.precio * elemento.cantidad,
 		0
 	);
@@ -84,7 +84,7 @@ function agregarCarro() {
 		arrayCarro.find((element)=> element.id == identificador).cantidad += 1;
 	}
 
-	costoTotalFuncion(arrayCarro);
+	costoTotalFuncion();
 }
 
 // Funcion para mostrar en HTML el carro de compras 
