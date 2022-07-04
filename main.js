@@ -1,9 +1,6 @@
 //Primera entrega de Proyecto Final: Objetos, Arrays, Metodo de busqueda y filtrado
-let cantidad = 0;
 let costoTotal = 0;
-let cantidadCuotas = 0;
-let costoCuota = 0;
-let mensaje = `Productos en el carrito:`;
+
 
 // Clase constructora para productos:
 class Producto {
@@ -42,6 +39,8 @@ function costoTotalFuncion(arr) {
 
 // Funcion para calcular el monto de las cuotas
 function calcularCuotas(costo) {
+	let cantidadCuotas = 0;
+	let costoCuota = 0;
 	cantidadCuotas = Number(prompt(`¿En cuantas cuotas desea realizar la compra de $${costo}? (3, 6 o 12 cuotas)`));
 	if (!(cantidadCuotas == 3 || cantidadCuotas == 6 || cantidadCuotas == 12)) {
 		alert(`Ingrese una cantidad de cuotas valida.`);
@@ -57,12 +56,12 @@ function calcularCuotas(costo) {
 
 // Funcion para calcular el monto de las cuotas (otra version)
 function calcularCuotas2() {
-	cantidadCuotas = Number(prompt(`¿En cuantas cuotas desea realizar la compra de $${costoTotal}? (3, 6 o 12 cuotas)`));
+	let cantidadCuotas = Number(prompt(`¿En cuantas cuotas desea realizar la compra de $${costoTotal}? (3, 6 o 12 cuotas)`));
 	if (!(cantidadCuotas == 3 || cantidadCuotas == 6 || cantidadCuotas == 12)) {
 		alert(`Ingrese una cantidad de cuotas valida.`);
 		calcularCuotas2();
 	} else {
-		costoCuota = costoTotal / cantidadCuotas;
+		let costoCuota = costoTotal / cantidadCuotas;
 		let total = document.getElementById(`total`);
 
 		total.innerHTML = `<p>Total: $${costoTotal}</p>
