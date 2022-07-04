@@ -28,7 +28,6 @@ arrayProductos.push(girasol);
 // Array de productos del carro
 const arrayCarro = [];
 
-
 // Funcion para calcular el costo total al usuario:
 function costoTotalFuncion(arr) {
 	costoTotal = arr.reduce(
@@ -38,24 +37,7 @@ function costoTotalFuncion(arr) {
 }
 
 // Funcion para calcular el monto de las cuotas
-function calcularCuotas(costo) {
-	let cantidadCuotas = 0;
-	let costoCuota = 0;
-	cantidadCuotas = Number(prompt(`¿En cuantas cuotas desea realizar la compra de $${costo}? (3, 6 o 12 cuotas)`));
-	if (!(cantidadCuotas == 3 || cantidadCuotas == 6 || cantidadCuotas == 12)) {
-		alert(`Ingrese una cantidad de cuotas valida.`);
-		calcularCuotas(costo);
-	} else {
-		costoCuota = costo / cantidadCuotas;
-		let total = document.getElementById(`total`);
-
-		total.innerHTML = `<p>Total: $${costoTotal}</p>
-						<p>Tu compra sera en ${cantidadCuotas} cuotas de $${costoCuota.toFixed(2)}</p>`;
-	}
-}
-
-// Funcion para calcular el monto de las cuotas (otra version)
-function calcularCuotas2() {
+function calcularCuotas() {
 	let cantidadCuotas = Number(prompt(`¿En cuantas cuotas desea realizar la compra de $${costoTotal}? (3, 6 o 12 cuotas)`));
 	if (!(cantidadCuotas == 3 || cantidadCuotas == 6 || cantidadCuotas == 12)) {
 		alert(`Ingrese una cantidad de cuotas valida.`);
@@ -127,8 +109,7 @@ function mostrarCarro() {
 
 	
 	const comprarBtn = document.querySelector("#comprarBtn");
-	// comprarBtn.addEventListener('click', () => calcularCuotas(costoTotal));
-	comprarBtn.addEventListener('click', calcularCuotas2);
+	comprarBtn.addEventListener('click', calcularCuotas);
 }
 
 window.onload = mostrarProductos();
