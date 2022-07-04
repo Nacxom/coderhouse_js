@@ -1,3 +1,3 @@
-# desafio_complementario_1
+# coderhouse javascript
 
-Link a la **live version** [aqui](https://nacxom.github.io/desafio_js/).
+Link a la **live version** [aqui](https://nacxom.github.io/coderhouse_js/).
