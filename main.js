@@ -55,6 +55,7 @@ function calcularCuotas(costo) {
 	}
 }
 
+// Funcion para calcular el monto de las cuotas (otra version)
 function calcularCuotas2() {
 	cantidadCuotas = Number(prompt(`¿En cuantas cuotas desea realizar la compra de $${costoTotal}? (3, 6 o 12 cuotas)`));
 	if (!(cantidadCuotas == 3 || cantidadCuotas == 6 || cantidadCuotas == 12)) {
@@ -70,7 +71,7 @@ function calcularCuotas2() {
 }
 
 // DOM
-// Mostrar grilla de productos:
+// Mostrar grilla de productos en el HTML:
 function mostrarProductos() {
 	let gridProductos = document.getElementById(`grid-productos`);
 	// Tomo como padre ese div, ahora genero a partir del arrayProductos una grid completa de productos.
@@ -92,6 +93,7 @@ function mostrarProductos() {
 	cardBtn.forEach((boton) => boton.addEventListener("click", mostrarCarro));
 }
 
+// Funcion para agregar al array del carro los productos elegidos por el usuario
 function agregarCarro() {
 	let identificador = Number(event.target.id);
 	if (!(arrayCarro.some((element) => element.id == identificador))){
@@ -104,7 +106,7 @@ function agregarCarro() {
 	costoTotalFuncion(arrayCarro);
 }
 
-// Funcion para mostrar en HTML el carro de compras (un array con objetos)
+// Funcion para mostrar en HTML el carro de compras 
 function mostrarCarro() {
 	let containerList = document.getElementById(`lista-carro`);
 	containerList.innerHTML = ``;
