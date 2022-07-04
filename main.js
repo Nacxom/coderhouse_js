@@ -26,7 +26,7 @@ arrayProductos.push(citrus);
 arrayProductos.push(girasol);
 
 // Array de productos del carro
-const arrayCarro = [];
+let arrayCarro = [];
 
 // Funcion para calcular el costo total al usuario:
 function costoTotalFuncion() {
@@ -83,21 +83,32 @@ function agregarCarro() {
 	} else {
 		arrayCarro.find((element)=> element.id == identificador).cantidad += 1;
 	}
+}
 
-	costoTotalFuncion();
+// Funcion para eliminar elementos del carro
+function eliminarCarro() {
+	let identificador = Number(event.target.id.slice(7));
+
+	arrayCarro = arrayCarro.filter((element) => element.id != identificador);
+	
+	mostrarCarro();
 }
 
 // Funcion para mostrar en HTML el carro de compras 
 function mostrarCarro() {
+	costoTotalFuncion();
 	let containerList = document.getElementById(`lista-carro`);
 	containerList.innerHTML = ``;
 	for (const producto of arrayCarro) {
 		let itemCarro = document.createElement(`div`);
 
 		itemCarro.className = `d-flex flex-row justify-content-between`;
-		itemCarro.innerHTML = `<p>${producto.nombre}</p><p>$${producto.precio} c/u</p><p>Cantidad: ${producto.cantidad}</p><br>`;
+		itemCarro.innerHTML = `<p>${producto.nombre}</p><p>$${producto.precio} c/u</p><p>Cantidad: ${producto.cantidad}</p><a  href="#"><i class="bi bi-x-square-fill btnEliminarCarro" id="remove-${producto.id}" ></i></a><br>`;
 
 		containerList.appendChild(itemCarro);
+
+		const eliminarBtn = document.querySelectorAll(".btnEliminarCarro");
+		eliminarBtn.forEach((boton) => boton.addEventListener("click", eliminarCarro));
 	}
 	let total = document.createElement(`div`);
 	total.setAttribute("id", `total`);
@@ -113,3 +124,5 @@ function mostrarCarro() {
 }
 
 window.onload = mostrarProductos();
+
+
