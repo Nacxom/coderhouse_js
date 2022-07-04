@@ -75,7 +75,7 @@ function mostrarProductos() {
 }
 
 // Funcion para agregar al array del carro los productos elegidos por el usuario
-function agregarCarro() {
+function agregarCarro(event) {
 	let identificador = Number(event.target.id);
 	if (!(arrayCarro.some((element) => element.id == identificador))){
 		arrayCarro.push(arrayProductos.find((element) => element.id == identificador));
@@ -86,7 +86,7 @@ function agregarCarro() {
 }
 
 // Funcion para eliminar elementos del carro
-function eliminarCarro() {
+function eliminarCarro(event) {
 	let identificador = Number(event.target.id.slice(7));
 
 	arrayCarro = arrayCarro.filter((element) => element.id != identificador);
